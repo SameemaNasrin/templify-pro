@@ -1,7 +1,7 @@
 export class Templates {
   public static AVAILABLE_TEMPLATES = [
     {
-      id: 1,
+      templateId: 1,
       templateType: 'Portfolio',
       templateName: 'Template name here',
       tempaltePrice: '$12',
@@ -32,7 +32,7 @@ export class Templates {
       }
     },
     {
-      id: 2,
+      templateId: 2,
       templateType: 'Landing Pages',
       templateName: 'Template name here',
       tempaltePrice: '$12',
@@ -63,7 +63,7 @@ export class Templates {
       }
     },
     {
-      id: 3,
+      templateId: 3,
       templateType: 'Landing Pages',
       templateName: 'Template name here',
       tempaltePrice: '$12',
@@ -94,7 +94,7 @@ export class Templates {
       }
     },
     {
-      id: 4,
+      templateId: 4,
       templateType: 'E-Commerse',
       templateName: 'Template name here',
       tempaltePrice: '$12',
@@ -125,7 +125,7 @@ export class Templates {
       }
     },
     {
-      id: 5,
+      templateId: 5,
       templateType: 'Business Website',
       templateName: 'Template name here',
       tempaltePrice: '$12',
@@ -156,7 +156,7 @@ export class Templates {
       }
     },
     {
-      id: 6,
+      templateId: 6,
       templateType: 'Blog',
       templateName: 'Template name here',
       tempaltePrice: '$12',

@@ -5,7 +5,7 @@
       alt="arrow-left-circle"
       class="arrow-left-circle"
     />
-    <p>{{ type }}</p>
+    <p>{{ template.templateType }}</p>
   </div>
   <div class="purchase-section">
     <div class="perchase-header-section">
@@ -111,7 +111,7 @@
       <app-template-cards
         [template]="template"
         class="template-card-interaction"
-        (click)="navigateToTemplate(template.id, template.templateType)"
+        (click)="navigateToTemplate(template.templateId, template.templateType)"
       />
       }
       <!-- Need to add logic for dynamically getting template type

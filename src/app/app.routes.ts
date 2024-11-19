@@ -15,7 +15,7 @@ export const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'out-studio', component: OurStudioComponent },
   { path: 'get-in-touch', component: GetInTouchComponent },
-  { path: 'template-desc/:type/:id', component: TemplateDescComponent },
+  { path: 'template-desc', component: TemplateDescComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
   { path: 'payment-flow', component: PaymentFlowComponent },

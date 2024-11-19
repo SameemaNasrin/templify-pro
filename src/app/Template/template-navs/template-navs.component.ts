@@ -14,11 +14,12 @@ export class TemplateNavsComponent implements OnInit {
   @Input() marginTop: string = '0vh';
   @Input() theme: string = 'light';
   @Output() activeNav = new EventEmitter<string>();
-
+  @Input() templateType: string = '';
   activeNavLocal = 'EXPLORE';
   ngOnInit(): void {
     this.getTemplateNavs();
     this.activeNav.emit(this.activeNavLocal);
+    this.activeNavLocal = this.templateType.toUpperCase();
   }
 
   getTemplateNavs() {
@@ -29,5 +30,6 @@ export class TemplateNavsComponent implements OnInit {
   changeTemplateNav(tempNavs: string) {
     this.activeNavLocal = tempNavs;
     this.activeNav.emit(this.activeNavLocal.toUpperCase());
+    this.templateType = '';
   }
 }

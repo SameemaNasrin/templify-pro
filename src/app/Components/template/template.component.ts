@@ -11,6 +11,7 @@ import { Templates } from '../../Common/Templates';
 import { TemplateCardsComponent } from '../../Template/template-cards/template-cards.component';
 import { FooterSectionComponent } from '../footer-section/footer-section.component';
 import { Router } from '@angular/router';
+import { FirebaseService } from '../../Services/FirebaseService';
 
 interface Filters {
   value: string;
@@ -30,22 +31,42 @@ interface Filters {
     TemplateCardsComponent,
     FooterSectionComponent,
   ],
+  providers: [FirebaseService],
   templateUrl: './template.component.html',
   styleUrl: './template.component.css',
 })
 export class TemplateComponent implements OnInit {
   filters: any;
   availableTemplates: any[] = [];
-  templateType: string = 'Landing Page';
-  constructor(private router: Router) {}
+  templateType: string = 'explore';
+  constructor(
+    private router: Router,
+    private firebaseService: FirebaseService
+  ) {}
 
   ngOnInit(): void {
+    this.availableTemplates = [];
     this.getFilters();
-    this.getAvailableTemplates();
+    // this.getAvailableTemplates();
+
+    if (history.state.templateType != undefined)
+      this.templateType = (history.state.templateType).toLowerCase();
+    else this.templateType = 'explore';
+
+    this.handleNavChange(this.templateType);
+    // this.getTemplatesFromDB();
   }
 
   getFilters() {
     this.filters = Constants.FILTERS;
+  }
+
+  async getTemplatesFromDB() {
+    this.availableTemplates = []; //reset
+    const templates = await this.firebaseService.getTemplateByType(
+      this.templateType
+    );
+    this.availableTemplates.push(...templates);
   }
 
   getAvailableTemplates() {
@@ -59,12 +80,15 @@ export class TemplateComponent implements OnInit {
     }
   }
 
-  navigateToTemplate(templateId: string) {
-    this.router.navigate(['/template-desc', this.templateType, templateId]);
+  navigateToTemplate(template: string) {
+    this.router.navigate(['/template-desc'], {
+      state: { template: template },
+    });
   }
 
   handleNavChange(activeNav: string) {
     this.templateType = activeNav;
-    this.getAvailableTemplates();
+    this.getTemplatesFromDB();
+    // this.getAvailableTemplates(); test function
   }
 }

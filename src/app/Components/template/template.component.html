@@ -4,7 +4,7 @@
     Entrepreneurs
   </h1>
 
-  <app-template-navs theme="dark" (activeNav)="handleNavChange($event)" />
+  <app-template-navs theme="dark" (activeNav)="handleNavChange($event)" [templateType]="templateType" />
 </div>
 
 <div class="filter-section">
@@ -29,7 +29,7 @@
   <app-template-cards
     [template]="template"
     class="template-card-interaction"
-    (click)="navigateToTemplate(template.id)"
+    (click)="navigateToTemplate(template)"
   />
   }
     <!-- Need to add logic for dynamically getting template type -->

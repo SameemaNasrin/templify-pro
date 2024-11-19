@@ -22,8 +22,6 @@ import { FooterSectionComponent } from '../footer-section/footer-section.compone
   styleUrl: './template-desc.component.css',
 })
 export class TemplateDescComponent implements OnInit {
-  id: number = 0;
-  type: string | null = null;
   template: any;
   headingTemplates: any;
   similarTemplates: any;
@@ -35,16 +33,16 @@ export class TemplateDescComponent implements OnInit {
         window.scrollTo(0, 0);
       }
     });
-    this.id = parseInt(this.route.snapshot.paramMap.get('id')!);
-    this.type = this.route.snapshot.paramMap.get('type');
 
     this.getTemplate();
     this.getHeadingTemplates();
     this.getSimilarTemplates();
   }
 
-  getTemplate() {
-    this.template = Templates.AVAILABLE_TEMPLATES.find(template => template.id == this.id);
+  async getTemplate() {
+    this.template = history.state.template;
+    console.log(this.template);
+    //   this.template = Templates.AVAILABLE_TEMPLATES.find(template => template == this.id);
   }
 
   getHeadingTemplates() {
@@ -61,14 +59,16 @@ export class TemplateDescComponent implements OnInit {
 
   // need to modify this function to navigate based on template type
   navigateBack(templateType: string) {
-    this.router.navigate(['/template']);
+    this.router.navigate(['/template'], {
+      state: { templateType: templateType },
+    });
   }
 
   browseLibrary() {
     this.router.navigate(['/template']);
   }
 
-  navigate(navigateUrl:string){
-    this.router.navigate([navigateUrl])
+  navigate(navigateUrl: string) {
+    this.router.navigate([navigateUrl]);
   }
 }

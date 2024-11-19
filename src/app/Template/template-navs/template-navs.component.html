@@ -14,7 +14,7 @@
           clip-rule="evenodd"
           [attr.d]="tempNavs.svgPath"
           [attr.fill]="
-            activeNavLocal === tempNavs.name
+            activeNavLocal.toUpperCase() === (tempNavs.name).toUpperCase()
               ? '#eb5a28'
               : theme == 'dark'
               ? '#fff'
@@ -24,7 +24,7 @@
       </svg>
       <p
         [ngClass]="
-          activeNavLocal === tempNavs.name
+          activeNavLocal.toUpperCase() === (tempNavs.name).toUpperCase()
             ? 'highlight-text'
             : theme == 'dark'
             ? 'nav-name-dark'
