@@ -1,0 +1,64 @@
+<div
+  class="nav-bar-container"
+  [ngClass]="
+    darkThemeRouters.includes(router.url) ||
+    router.url.indexOf('/template-desc') != -1
+      ? 'dark-nav'
+      : 'light-nav'
+  "
+>
+  <a
+    class="app-name-logo"
+    routerLink="/"
+    routerLinkActive="active"
+    ariaCurrentWhenActive="page"
+  >
+    <img src="../../../assets/AppLogo.svg" alt="app-logo" id="app-logo" />
+    @if(darkThemeRouters.includes(router.url) ||
+    router.url.indexOf('/template-desc') != -1){
+    <img
+      src="../../../assets/templifyProDarkTheme.svg"
+      alt="app-name"
+      id="app-name"
+    />
+    } @else{
+    <img src="../../../assets/templifyPro.svg" alt="app-name" id="app-name" />
+
+    }
+  </a>
+
+  <div class="nav-links">
+    @for(nav of navs; track nav){
+    <a
+      [routerLink]="nav.link"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      aria-current="page"
+      class="nav-link"
+      [ngClass]="
+        darkThemeRouters.includes(router.url) ||
+        router.url.indexOf('/template-desc') != -1
+          ? 'dark-nav'
+          : 'light-nav'
+      "
+      >{{ nav.name | titlecase }}</a
+    >
+
+    }
+  </div>
+
+  <div class="user-buttons">
+    <app-button
+      (click)="navigate('/login')"
+      btnText="LOGIN"
+      type="outline"
+      [theme]="
+        darkThemeRouters.includes(router.url) ||
+        router.url.indexOf('/template-desc') != -1
+          ? 'dark'
+          : 'light'
+      "
+    />
+    <app-button (click)="navigate('/signup')" btnText="SIGNUP" type="fill" />
+  </div>
+</div>

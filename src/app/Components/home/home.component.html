@@ -1,0 +1,198 @@
+<div class="home-container">
+  <div class="tag">
+    <img src="assets/iconStar.svg" alt="icon-star" class="icon-star" />
+    <p class="tag-line">Ship Your Product Faster</p>
+  </div>
+  <app-page-header
+    class="hero-app-page-header"
+    [pageTitle]="headingTemplates.heroSection.pageTitle"
+    [headingText]="headingTemplates.heroSection.headingText"
+    [subHeadingText]="headingTemplates.heroSection.subHeadingText"
+    fontWeight="bold"
+  />
+  <app-button
+    (click)="browseLibrary()"
+    [btnText]="browseLibraryTxt"
+    type="fill"
+    icon="assets/arrow-long-right.svg"
+  />
+</div>
+
+<img
+  src="../../../assets/modernInterface.svg"
+  alt="modern-interface"
+  class="modern-interface"
+/>
+<div class="project-section">
+  <div class="marquee-content">
+    @for(project of projects; track project){
+    <ng-container>
+      <app-project-templates
+        [projectTemplate]="project"
+      ></app-project-templates>
+    </ng-container>
+    } @for(project of projects; track project){
+    <ng-container>
+      <app-project-templates
+        [projectTemplate]="project"
+      ></app-project-templates>
+    </ng-container>
+    }
+  </div>
+</div>
+
+<div class="template-section">
+  <div class="marquee-content-template">
+    @for(template of templates; track template){
+    <ng-container>
+      <app-project-templates
+        [projectTemplate]="template"
+      ></app-project-templates>
+    </ng-container>
+    } @for(template of templates; track template){
+    <ng-container>
+      <app-project-templates
+        [projectTemplate]="template"
+      ></app-project-templates>
+    </ng-container>
+    }
+  </div>
+</div>
+<img
+  src="../../../assets/premiumTemplate.svg"
+  alt="premium-template"
+  class="premium-template-tag"
+/>
+
+<div class="dark-bg premium-template">
+  <h1>
+    <i
+      >Access <span class="orange-highlight-text">Premium Templates</span> for
+      Effortless, Professional Websites</i
+    >
+  </h1>
+
+  <p>
+    Building a website doesn’t have to be stressful. As a business owner, you
+    know a quality website drives growth—and we’re here to make it easy.
+    <br /><br />With our high-quality
+    <span class="bright-white-highlight-text">templates</span>, ready-to-use
+    <span class="bright-white-highlight-text">code packages</span> and
+    hassle-free setup, you’ll launch a professional site without the high costs
+    or complexity. <br /><br />
+    Start simply, launch confidently, and focus on what you do best.
+  </p>
+  <app-button
+    (click)="browseLibrary()"
+    [btnText]="browseLibraryTxt"
+    type="fill"
+    icon="assets/arrow-long-right.svg"
+  />
+</div>
+
+<div class="service-tag-sections">
+  @for(serviceTags of serviceTags; track serviceTags){
+  <button
+    class="service-tag"
+    [style]="{
+      borderImage:
+        'linear-gradient(to right, ' +
+        serviceTags.colorBright +
+        ', ' +
+        serviceTags.colorLight +
+        ') 1'
+    }"
+  >
+    {{ serviceTags.btn }}
+  </button>
+  }
+</div>
+
+<div class="explore-template-section">
+  <app-page-header
+    class="hero-app-page-header"
+    [pageTitle]="headingTemplates.exploreTemplateSection.pageTitle"
+    [headingText]="headingTemplates.exploreTemplateSection.headingText"
+    [subHeadingText]="headingTemplates.exploreTemplateSection.subHeadingText"
+    fontWeight="bold"
+  />
+
+  <app-template-navs marginTop="5rem" />
+  
+  <div class="template-price-section">
+    <div class="diverse-template-range">
+      <p>{{ "diverse template range" | uppercase }}</p>
+      <p class="price-range">$24.00 – $69.00</p>
+      <p class="browse-library-text">
+        Browse our entire library of versatile templates, ideal for business
+        owners, startups, designers, and anyone looking to create a stunning
+        website with ease. All templates, all in one spot.
+      </p>
+      <ul>
+        @for(tempInc of templateIncludes; track tempInc){
+
+        <li>
+          <img src="assets/star.svg" alt="star" />
+          <p>{{ tempInc }}</p>
+        </li>
+        }
+      </ul>
+      <app-button
+        (click)="browseLibrary()"
+        [btnText]="browseLibraryTxt"
+        type="fill"
+        icon="assets/arrow-long-right.svg"
+      />
+    </div>
+    <div class="clients-section"></div>
+  </div>
+
+  <app-page-header
+    class="hero-app-page-header"
+    [pageTitle]="headingTemplates.introPitchSection.pageTitle"
+    [headingText]="headingTemplates.introPitchSection.headingText"
+    [subHeadingText]="headingTemplates.introPitchSection.subHeadingText"
+    fontWeight="bold"
+  />
+  <div class="intro-pitch-video">
+    <iframe
+      width="840"
+      height="475"
+      src="https://www.youtube.com/embed/tgbNymZ7vqY"
+    >
+    </iframe>
+  </div>
+</div>
+
+<div class="faq-section">
+  <app-page-header
+    [pageTitle]="headingTemplates.faqSection.pageTitle"
+    [headingText]="headingTemplates.faqSection.headingText"
+    [subHeadingText]="headingTemplates.faqSection.subHeadingText"
+  />
+
+  <div class="faq-panel-container">
+    <app-faq />
+  </div>
+</div>
+
+<div class="dark-bg design-arsenal">
+  <app-page-header
+    [pageTitle]="headingTemplates.designArsenalSection.pageTitle"
+    [headingText]="headingTemplates.designArsenalSection.headingText"
+    [subHeadingText]="headingTemplates.designArsenalSection.subHeadingText"
+    theme="dark"
+  />
+  <app-button
+    (click)="browseLibrary()"
+    [btnText]="browseLibraryTxt"
+    type="fill"
+    icon="assets/arrow-long-right.svg"
+  />
+  <img
+    src="../../../assets/blocksMockup.svg"
+    alt="block-mockup"
+    class="block-mockup"
+  />
+</div>
+<app-footer-section />

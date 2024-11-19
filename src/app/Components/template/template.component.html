@@ -1,0 +1,41 @@
+<div class="template-navs">
+  <h1>
+    Premium Templates For<br /><span class="creative-style">Creative</span>
+    Entrepreneurs
+  </h1>
+
+  <app-template-navs theme="dark" (activeNav)="handleNavChange($event)" />
+</div>
+
+<div class="filter-section">
+  <p>{{ availableTemplates.length }} Results</p>
+
+  <div class="filters">
+    @for (filter of filters; track filter) {
+    <mat-form-field>
+      <mat-label>Template Filters</mat-label>
+      <mat-select>
+        @for (f of filter; track f) {
+        <mat-option [value]="f">{{ f | titlecase }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    }
+  </div>
+</div>
+
+<div class="available-template-sections">
+  @for(template of availableTemplates; track template){
+  <app-template-cards
+    [template]="template"
+    class="template-card-interaction"
+    (click)="navigateToTemplate(template.id)"
+  />
+  }
+    <!-- Need to add logic for dynamically getting template type -->
+
+</div>
+
+<div class="hr"></div>
+
+<app-footer-section />

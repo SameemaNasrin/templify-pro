@@ -1,0 +1,88 @@
+<div class="home-container">
+  <div class="tag">
+    <img src="assets/iconStar.svg" alt="icon-star" class="icon-star" />
+    <p class="tag-line">Get In Touch</p>
+  </div>
+  <app-page-header
+    class="hero-app-page-header"
+    [pageTitle]="headingTemplates.getInTouchHeroSection.pageTitle"
+    [headingText]="headingTemplates.getInTouchHeroSection.headingText"
+    [subHeadingText]="headingTemplates.getInTouchHeroSection.subHeadingText"
+    fontWeight="bold"
+  />
+</div>
+<div class="get-in-touch-section">
+  <form [formGroup]="emailFormGroup">
+    <div>
+      <span>What’s your name?</span> <br />
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="yourName"
+          (blur)="updateErrorMessage('yourName')"
+          required
+        />
+        <mat-error *ngIf="emailFormGroup.controls['yourName'].invalid">{{
+          errorMessage["yourName"]
+        }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <span>Your e-mail </span><br />
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="email"
+          (blur)="updateErrorMessage('email')"
+          required
+        />
+        <mat-error *ngIf="emailFormGroup.controls['email'].invalid">{{
+          errorMessage["email"]
+        }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="big-form-field">
+      <span>What can we help you with?</span>
+      <mat-radio-group aria-label="Select an option">
+        @for(service of services; track service){
+
+        <mat-radio-button value="service">{{service | titlecase}}</mat-radio-button>
+        }
+      </mat-radio-group>
+
+        <mat-error
+          id="service-req-error"
+          *ngIf="this.emailFormGroup.get('serviceRequired')?.value.length === 0"
+          >{{ errorMessage["serviceRequired"] }}</mat-error
+        >
+    </div>
+    <div class="big-form-field">
+      <span>Share short description </span>
+      <mat-form-field>
+        <textarea
+          matInput
+          formControlName="projectDetails"
+          (blur)="updateErrorMessage('projectDetails')"
+          required
+        ></textarea>
+        <mat-error *ngIf="emailFormGroup.controls['projectDetails'].invalid">{{
+          errorMessage["projectDetails"]
+        }}</mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+  <app-button btnText="SUBMIT" type="fill" />
+</div>
+
+<div class="faq-section">
+  <app-page-header
+    [pageTitle]="headingTemplates.faqSection.pageTitle"
+    [headingText]="headingTemplates.faqSection.headingText"
+    [subHeadingText]="headingTemplates.faqSection.subHeadingText"
+  />
+
+  <div class="faq-panel-container">
+    <app-faq />
+  </div>
+</div>
+<app-footer-section />

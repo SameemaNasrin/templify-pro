@@ -1,0 +1,49 @@
+.template-images {
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8vh;
+  border-radius: 8px;
+  background-image: url("../../../assets/templateBgImage.svg");
+}
+
+.template-images:hover .template-image {
+  transform: scale(1.3) translateY(-20px);
+  transition-duration: 0.5s;
+}
+
+.template-image {
+  max-width: 90%;
+}
+
+.template-name {
+  color: var(--grey-25);
+  font-size: 0.8rem;
+}
+
+.template-cost {
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.name-icon-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name-icon-section svg{
+    margin-left: 2px;
+}
+
+.name-icon-section svg:hover{
+    cursor: pointer;
+}
+
+.name-icon-section svg:hover path{
+    stroke: var(--orange-light);
+}

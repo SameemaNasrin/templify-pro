@@ -1,0 +1,240 @@
+.home-container {
+  margin-top: 5rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.hero-app-page-header {
+  margin-top: -8rem;
+}
+
+.tag {
+  padding: 0.5rem 1rem;
+  border-radius: 40px;
+  background-color: var(--light-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: var(--primary-color);
+}
+
+.icon-star {
+  width: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.project-section {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.modern-interface {
+  position: relative;
+  top: 12vh;
+  left: 10vw;
+  z-index: 99;
+}
+
+.premium-template-tag {
+  position: relative;
+  top: -12vh;
+  left: 80vw;
+  z-index: 99;
+}
+
+app-project-templates {
+  margin: 1rem;
+}
+.marquee-content {
+  display: flex;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.template-section {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-content-template {
+  display: flex;
+  animation: marquee-template 10s linear infinite;
+}
+
+@keyframes marquee-template {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.dark-bg {
+  background-image: url("../../../assets/Web_Background_Light_ForOutro.svg");
+  background-position: center;
+  padding: 5rem;
+  margin: 5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.dark-bg h1 {
+  color: var(--white);
+  width: 60%;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.orange-highlight-text {
+  color: var(--orange-bright);
+}
+
+.dark-bg p {
+  color: var(--dull-white);
+  width: 60%;
+  margin-bottom: 2rem;
+}
+
+.service-tag-sections {
+  width: 60vw;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 5rem;
+}
+
+.service-tag {
+  word-break: keep-all;
+  color: var(--grey-100);
+  font-weight: 200;
+  background-color: transparent;
+  margin: 0.8vh;
+  padding: 1.5vh 1.5vw;
+  /* border property */
+  border: 1px solid transparent;
+  border-image-slice: 1;
+  border-radius: 8px;
+}
+
+.template-price-section {
+  display: flex;
+  margin: 3vh 10vw;
+}
+
+.diverse-template-range {
+  border: 1px solid var(--primary-color);
+  padding: 5vh 3vw;
+  width: 30%;
+  border-radius: 12px;
+  margin-right: 2vw;
+}
+
+.diverse-template-range > p:nth-child(1) {
+  color: var(--grey-25);
+  font-size: 0.8rem;
+}
+
+.diverse-template-range > p:nth-child(2) {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+.diverse-template-range > p:nth-child(3) {
+  color: var(--grey-25);
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+
+.diverse-template-range > ul {
+  margin-bottom: 1rem;
+}
+
+.diverse-template-range > ul li {
+  display: flex;
+  color: var(--primary-color);
+  padding: 1vh 1vw 0 0;
+  font-size: 0.8rem;
+}
+
+.diverse-template-range > ul li > p {
+  margin-left: 2vw;
+}
+
+li {
+  list-style: none;
+}
+
+.clients-section {
+  border: 1px solid var(--primary-color);
+  border-radius: 12px;
+  background-image: url("../../../assets/dummy.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+}
+
+.intro-pitch-video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+iframe {
+  border-radius: 12px;
+  border: none;
+}
+
+.faq-panel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.design-arsenal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.design-arsenal app-button {
+  margin-top: 2rem;
+}
+
+.bright-white-highlight-text {
+  color: var(--white);
+}
+
+
+
+.browse-library {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  cursor: pointer;
+}

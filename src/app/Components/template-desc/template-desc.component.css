@@ -1,0 +1,181 @@
+.template-desc-container {
+  margin: 2rem 12vw;
+}
+
+.arrow-left-circle {
+  max-width: 1.2rem;
+  margin-right: 10px;
+}
+
+.prev-nav-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.prev-nav-section p {
+  font-size: 0.8rem;
+}
+
+.purchase-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+}
+
+.perchase-header-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-template {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.template-desc {
+  width: 60%;
+  margin: 0.8rem 0;
+  font-size: 0.9rem;
+  color: var(--grey-25);
+}
+
+.template-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+.template-info p {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+}
+
+.ellipse {
+  padding-right: 0.5rem;
+}
+
+.price-purchase-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.template-price {
+  margin-right: 2rem;
+}
+
+.price-section {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.play-bookmark-icons img {
+  max-width: 2.5rem;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--stroke);
+}
+
+.template-desc-img {
+  margin-top: 2rem;
+  max-width: 75vw;
+}
+
+.whats-included-section {
+  display: flex;
+  margin-top: 5rem;
+}
+
+.whats-included-text-section h1 {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.whats-included-text-section p {
+  color: var(--grey-25);
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
+.pages {
+  display: flex;
+}
+
+.pages li {
+  margin-top: 1rem;
+  word-break: keep-all;
+  font-size: 0.8rem;
+  background-color: var(--light-white);
+  color: var(--primary-color);
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 10px;
+  list-style: none;
+}
+
+.pros-list {
+  margin-top: 1rem;
+}
+
+.pros-list li {
+  font-size: 0.8rem;
+  list-style: none;
+  padding: 5px 0;
+  color: var(--primary-color);
+}
+
+.purchase-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+iframe {
+  margin-top: 2rem;
+  border-radius: 12px;
+  border: none;
+}
+
+.hr {
+  width: 100%;
+  height: 0.3px;
+  margin-top: 3rem;
+  background-color: var(--stroke);
+}
+
+.similar-templates {
+  width: 75vw;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 5vh;
+  column-gap: 2vw;
+  margin-top: 1vh;
+}
+
+.template-card-interaction {
+  cursor: pointer;
+}
+
+.browse-library {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  cursor: pointer;
+}

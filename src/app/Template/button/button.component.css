@@ -1,0 +1,46 @@
+/* 
+Fix button size issue.
+Button with border looks bigger
+Temprary solution: set padding of bordered button 0.3 less
+*/
+
+.btn-common-style {
+  padding: 1.5vh 1vw;
+  /* margin-left: 1vw; */
+  border-radius: 8px;
+  border-width: 1.5px;
+  border-style: solid;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.btn-fill {
+  color: var(--white);
+  background-image: linear-gradient(
+    to top,
+    var(--orange-bright),
+    var(--orange-light)
+  );
+  border: none;
+}
+
+.btn-outline {
+  padding: 1.2vh 0.7vw;
+  background-color: transparent;
+  border-color: var(--primary-color);
+}
+
+.dark-theme-btn {
+  background-color: transparent;
+  color: var(--white);
+  border-color: var(--white);
+}
+
+#icon {
+  max-height: 1rem;
+  margin: 0 1vw 0 0.5vw;
+}

@@ -1,0 +1,17 @@
+<button class="btn-common-style" [ngClass]="{
+  'btn-fill dark-theme-btn': type === 'fill' && theme === 'dark',
+  'btn-fill light-theme-btn': type === 'fill' && theme !== 'dark',
+  'btn-outline dark-theme-btn': type !== 'fill' && theme === 'dark',
+  'btn-outline light-theme-btn': type !== 'fill' && theme !== 'dark'
+}"
+[ngStyle]="{
+  'padding-left': btnPadding !== '' ? btnPadding : '2vw',
+  'padding-right': btnPadding !== '' ? btnPadding : '2vw',
+  'min-width': width !== '' ? width : 'fit-content'
+}">
+  {{ btnText }}
+  @if(icon !== ''){
+    <img [src]="icon" alt="icon" id="icon">
+  }
+</button>
+

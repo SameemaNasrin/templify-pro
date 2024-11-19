@@ -1,0 +1,74 @@
+.template-navs ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80vw;
+  justify-content: space-around;
+  margin: auto;
+}
+
+.template-navs ul li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1vw 1vh 0 1vh;
+  font-size: 0.7rem;
+  color: var(--primary-color);
+}
+
+.template-navs ul p {
+  margin-top: 1vh;
+}
+
+.template-navs ul li:hover {
+  color: var(--orange-light);
+}
+
+
+.template-navs ul li:hover path {
+  fill: var(--orange-light);
+}
+
+.template-navs ul li:hover .border-bottom-hover {
+  animation: border-animation 0.2s linear forwards;
+}
+
+.border-bottom-hover {
+  width: 0px;
+  height: 0px;
+  margin-top: 1vh;
+  border: 1.5px solid transparent;
+}
+
+/*
+Calculate border width dynamically by the nav text 
+*/
+@keyframes border-animation {
+  from {
+    width: 0px;
+  }
+
+  to {
+    width: 1.5rem;
+    height: 0.5px;
+    border: 1.5px solid var(--orange-light);
+  }
+}
+
+.nav-name-dark{
+  color: var(--white);
+}
+
+.nav-name-light {
+  color: var(--primary-color);
+}
+
+.template-navs ul li:hover .nav-name-dark, .template-navs ul li:hover .nav-name-light {
+  color: var(--orange-light);
+}
+
+.highlight-text{
+  color: var(--orange-bright);
+}

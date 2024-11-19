@@ -1,0 +1,97 @@
+<div class="login-container">
+  <div class="login-section">
+    <div class="header-section">
+      <a
+        class="app-name-logo"
+        routerLink="/"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+      >
+        <img src="../../../assets/AppLogo.svg" alt="app-logo" id="app-logo" />
+
+        <img
+          src="../../../assets/templifyPro.svg"
+          alt="app-name"
+          id="app-name"
+        />
+      </a>
+      <div class="cancle-button">
+        <img
+          src="../../../assets/cross.svg"
+          alt="cross"
+          class="cross"
+          (click)="navigate('')"
+        />
+      </div>
+    </div>
+
+    <div class="main-section">
+      <h1>Log in</h1>
+      <p>
+        Don't have an account?
+        <span class="highlight-text" (click)="navigate('/signup')"
+          >Sign Up</span
+        >
+      </p>
+
+      <div class="social-login">
+        @for(login of socialLogins; track login){
+        <div class="login-links">
+          <img [src]="login[0]" alt="login-logo" class="login-logo" />
+          <p class="login-text">{{ login[1] }}</p>
+        </div>
+        }
+      </div>
+      <div class="or-div">
+        <div class="one"></div>
+        <p>OR</p>
+        <div class="two"></div>
+      </div>
+
+      <div class="login-form">
+        <form>
+          <mat-form-field class="login-full-width">
+            <mat-label>Email</mat-label>
+            <input
+              type="email"
+              matInput
+              [formControl]="emailFormControl"
+              [errorStateMatcher]="matcher"
+            />
+            @if (emailFormControl.hasError('email') &&
+            !emailFormControl.hasError('required')) {
+            <mat-error>Please enter a valid email address</mat-error>
+            } @if (emailFormControl.hasError('required')) {
+            <mat-error>Email is <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide() ? 'password' : 'text'" />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="clickEvent($event)"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide()"
+            >
+              <mat-icon>{{
+                hide() ? "visibility_off" : "visibility"
+              }}</mat-icon>
+            </button>
+            <mat-hint class="highlight-text">Forget your password</mat-hint>
+          </mat-form-field>
+        </form>
+
+        <app-button btnText="LOGIN" type="fill" width="30vw" />
+      </div>
+      <div class="terms-of-use">
+        By continuing, you agree to
+        <span class="highlight-text">Terms of Use</span> and acknowledge you’ve
+        read our
+        <span class="highlight-text">Privacy</span>
+      </div>
+    </div>
+  </div>
+</div>

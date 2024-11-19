@@ -1,0 +1,131 @@
+<div class="template-desc-container">
+  <div class="prev-nav-section" (click)="navigateBack(template.templateType)">
+    <img
+      src="../../../assets/arrow-left-circle.svg"
+      alt="arrow-left-circle"
+      class="arrow-left-circle"
+    />
+    <p>{{ type }}</p>
+  </div>
+  <div class="purchase-section">
+    <div class="perchase-header-section">
+      <p class="portfolio-template">
+        {{ template.templateType }} - {{ template.templateName }}
+      </p>
+      <p class="template-desc">
+        {{ template.templateDesc }}
+      </p>
+      <div class="template-info">
+        @for(info of template.templateInfo; track info){
+        <p>
+          {{ info }}
+        </p>
+        <img src="../../../assets/Ellipse.png" alt="Ellipse" class="ellipse" />
+        }
+      </div>
+    </div>
+
+    <div class="price-section">
+      <div class="play-bookmark-icons">
+        <img src="../../../assets/proicons_play.svg" alt="play-icon" />
+        <img src="../../../assets/mdi-light_bookmark.svg" alt="bookmark-icon" />
+      </div>
+      <div class="price-purchase-btn">
+        <div class="template-price">
+          {{ template.templatePrice }}
+        </div>
+        <app-button
+          (click)="navigate('/payment-flow')"
+          btnPadding="4rem"
+          btnText="PURCHASE"
+          icon="assets/arrow-up-right.svg"
+          type="fill"
+        />
+      </div>
+    </div>
+  </div>
+  <img
+    src="../../../assets/templateDescImage.svg"
+    alt="template-desc-img"
+    class="template-desc-img"
+  />
+
+  <div class="whats-included-section">
+    <div class="whats-included-text-section">
+      <h1>What’s Included?</h1>
+      <p>{{ template.whatsIncluded.desc }}</p>
+      <ul class="pages">
+        @for(pages of template.whatsIncluded.pages; track pages){
+        <li>{{ pages }}</li>
+        }
+      </ul>
+      <ul class="pros-list">
+        @for(pros of template.whatsIncluded.prosList; track pros){
+        <li>
+          <img src="../../../assets/starOrange.svg" alt="star-orange" />
+          {{ pros }}
+        </li>
+        }
+      </ul>
+    </div>
+    <div class="whats-included-img-section">
+      <img
+        src="../../../assets/whatsIncludedImg.svg"
+        alt="whats-included-img"
+        class="whats-included-img"
+      />
+    </div>
+  </div>
+  <div class="purchase-button">
+    <app-button
+      (click)="navigate('/payment-flow')"
+      btnPadding="4rem"
+      btnText="PURCHASE"
+      icon="assets/arrow-up-right.svg"
+      type="fill"
+    />
+
+    <app-page-header
+      class="hero-app-page-header"
+      [pageTitle]="headingTemplates.behindTheSceneSection.pageTitle"
+      [headingText]="headingTemplates.behindTheSceneSection.headingText"
+      [subHeadingText]="headingTemplates.behindTheSceneSection.subHeadingText"
+      fontWeight="bold"
+    />
+
+    <div class="behind-the-scene-video">
+      <iframe
+        width="840"
+        height="475"
+        src="https://www.youtube.com/embed/tgbNymZ7vqY"
+      >
+      </iframe>
+    </div>
+  </div>
+  <div class="hr"></div>
+
+  <div class="similar-template-section">
+    <h1 class="similar-template-text">Similar Templates</h1>
+    <div class="similar-templates">
+      @for(template of similarTemplates; track template){
+      <app-template-cards
+        [template]="template"
+        class="template-card-interaction"
+        (click)="navigateToTemplate(template.id, template.templateType)"
+      />
+      }
+      <!-- Need to add logic for dynamically getting template type
+              Need to write algo for fetching simiar templates 
+        -->
+    </div>
+  </div>
+  <div class="browse-library">
+    <app-button
+      (click)="browseLibrary()"
+      btnText="BROWSE LIBRARY"
+      icon="assets/arrow-long-right.svg"
+      type="fill"
+    />
+  </div>
+</div>
+<app-footer-section />

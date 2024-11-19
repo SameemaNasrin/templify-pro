@@ -1,0 +1,30 @@
+.nav-bar-container,
+.user-buttons,
+.app-name-logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar-container {
+  justify-content: space-between;
+  padding: 2vh 1vw 1vh 1vw;
+}
+
+.app-name-logo img {
+  margin-right: 1vw;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--primary-color);
+  margin-right: 2vw;
+}
+
+app-button {
+  margin-left: 1vw;
+}
+
+.dark-nav {
+  background: url("../../../assets/BG\ PATTERN.svg");
+  color: var(--white);
+}

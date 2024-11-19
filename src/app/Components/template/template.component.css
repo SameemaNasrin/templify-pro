@@ -1,0 +1,100 @@
+.template-navs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3rem;
+  background: url('../../../assets/BG\ PATTERN.svg');
+  color: var(--white);
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.available-template-sections {
+  width: 90vw;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 5vh;
+  column-gap: 2vw;
+  margin-top: 1vh;
+}
+
+.hr {
+  width: 100%;
+  height: 0.3px;
+  margin-top: 3rem;
+  background-color: var(--stroke);
+}
+
+app-template-navs {
+  padding-top: 2rem;
+}
+
+.creative-style {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.filter-section {
+  width: 90vw;
+  margin: auto;
+}
+
+::ng-deep .mdc-text-field--filled {
+  background-color: transparent !important;
+}
+
+mat-label {
+  font-size: 0.8rem;
+}
+
+::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  display: none !important;
+}
+
+::ng-deep .mdc-line-ripple {
+  display: none !important;
+}
+
+::ng-deep
+  .mdc-text-field--filled:not(.mdc-text-field--disabled).mdc-text-field--focused
+  .mdc-floating-label,
+.mdc-text-field--filled:not(.mdc-text-field--disabled).mdc-text-field--focused
+  .mdc-floating-label--float-above {
+  color: var(--primary-color) !important;
+}
+
+::ng-deep .mat-mdc-form-field.mat-focused .mat-mdc-select-arrow {
+  color: var(--primary-color) !important;
+}
+
+/* selected filter */
+::ng-deep .mat-mdc-select-value-text {
+  font-size: 0.8rem !important;
+}
+
+/* select drop down options */
+::ng-deep .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled)
+  .mdc-list-item__primary-text {
+  color: var(--orange-bright) !important;
+  font-size: 0.8rem !important;
+}
+
+::ng-deep .mat-mdc-option .mdc-list-item__primary-text{
+  font-size: 0.8rem !important;
+}
+
+::ng-deep .cdk-overlay-pane:not(.mat-mdc-select-panel-above) div.mat-mdc-select-panel{
+  padding: 0;
+}
+
+.template-card-interaction{
+  cursor: pointer;
+}

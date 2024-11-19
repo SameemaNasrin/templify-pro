@@ -1,0 +1,34 @@
+<div class="footer-container">
+  <div class="left-pannel">
+    <a
+      class="app-name-logo"
+      routerLink="/"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      <img src="../../../assets/AppLogo.svg" alt="app-logo" id="app-logo" />
+      <img src="../../../assets/templifyPro.svg" alt="app-name" id="app-name" />
+    </a>
+    <p>We design and develop scalable platforms that help companies grow</p>
+    <div class="socials">
+      @for(social of socials; track social){
+      <img [src]="social" alt="social" class="social" />
+      }
+    </div>
+    <p class="copy-write">© 2024 {{ appName }} | All Rights Reserved.</p>
+  </div>
+  <div class="right-pannel">
+    @for(fl of footerLinks; track fl) {
+    <p>{{ fl }}</p>
+    }
+  </div>
+
+  <div class="mobile-social-copywrite">
+    <div class="mobile-socials">
+      @for(social of socials; track social){
+      <img [src]="social" alt="social" class="social" />
+      }
+    </div>
+    <p class="mobile-copy-write">© 2024 Studio.io | All Rights Reserved.</p>
+  </div>
+</div>
