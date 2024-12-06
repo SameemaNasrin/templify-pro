@@ -203,9 +203,9 @@ export class Constants {
   ];
 
   public static SOCIAL_LOGINS = [
-    ['../../../assets/google-logo.svg', 'Continue with Google'],
-    ['../../../assets/facebook-logo.svg', 'Continue with Facebook'],
-    ['../../../assets/apple-logo.svg', 'Continue with Apple'],
+    ['assets/google-logo.svg', 'Continue with Google'],
+    ['assets/facebook-logo.svg', 'Continue with Facebook'],
+    ['assets/apple-logo.svg', 'Continue with Apple'],
   ];
 
   public static FAQS: any = [
