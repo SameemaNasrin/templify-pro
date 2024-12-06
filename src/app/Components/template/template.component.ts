@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { TemplateNavsComponent } from '../../Template/template-navs/template-navs.component';
 
 import { FormsModule } from '@angular/forms';
@@ -11,7 +11,9 @@ import { Templates } from '../../Common/Templates';
 import { TemplateCardsComponent } from '../../Template/template-cards/template-cards.component';
 import { FooterSectionComponent } from '../footer-section/footer-section.component';
 import { Router } from '@angular/router';
-import { FirebaseService } from '../../Services/FirebaseService';
+import { FirebaseService } from '../../Services/firebase.service';
+import { CommonService } from '../../Services/common.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface Filters {
   value: string;
@@ -35,38 +37,67 @@ interface Filters {
   templateUrl: './template.component.html',
   styleUrl: './template.component.css',
 })
-export class TemplateComponent implements OnInit {
+export class TemplateComponent implements OnInit, OnDestroy {
   filters: any;
   availableTemplates: any[] = [];
-  templateType: string = 'explore';
+  templateType: any;
   constructor(
-    private router: Router,
-    private firebaseService: FirebaseService
+    private readonly router: Router,
+    private readonly firebaseService: FirebaseService,
+    private readonly commonService: CommonService,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
     this.availableTemplates = [];
     this.getFilters();
-    // this.getAvailableTemplates();
 
-    if (history.state.templateType != undefined)
-      this.templateType = (history.state.templateType).toLowerCase();
-    else this.templateType = 'explore';
-
-    this.handleNavChange(this.templateType);
-    // this.getTemplatesFromDB();
+    this.commonService.templateNavState$.subscribe((navState) => {
+      this.templateType = navState;
+      this.getTemplates();
+    });
   }
 
   getFilters() {
     this.filters = Constants.FILTERS;
   }
 
-  async getTemplatesFromDB() {
-    this.availableTemplates = []; //reset
-    const templates = await this.firebaseService.getTemplateByType(
-      this.templateType
+  getTemplates() {
+    if (this.templateType === 'explore') this.getAllTemplates();
+    else this.getTemplateByType();
+  }
+
+  getAllTemplates() {
+    this.availableTemplates = [];
+
+    this.firebaseService.getAllTemplates().subscribe(
+      (templates) => {
+        this.availableTemplates = templates;
+      },
+      (err) => {
+        this.snackBar.open('Please login to view Templates', 'Close', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        });
+      }
     );
-    this.availableTemplates.push(...templates);
+  }
+
+  getTemplateByType() {
+    this.availableTemplates = [];
+
+    this.firebaseService.getTemplateByType(this.templateType).subscribe({
+      next: (templates) => {
+        this.availableTemplates = templates;
+      },
+      error: (err) => {
+        console.error('Error fetching templates:', err);
+      },
+      complete: () => {
+        console.log('Template fetching completed.');
+      },
+    });
   }
 
   getAvailableTemplates() {
@@ -86,9 +117,7 @@ export class TemplateComponent implements OnInit {
     });
   }
 
-  handleNavChange(activeNav: string) {
-    this.templateType = activeNav;
-    this.getTemplatesFromDB();
-    // this.getAvailableTemplates(); test function
+  ngOnDestroy(): void {
+    // this.firebaseService.unsubscribe();
   }
 }

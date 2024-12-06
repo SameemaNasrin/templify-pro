@@ -26,7 +26,6 @@
 
     }
   </a>
-
   <div class="nav-links">
     @for(nav of navs; track nav){
     <a
@@ -47,6 +46,7 @@
     }
   </div>
 
+  @if(!isLoggedIn){
   <div class="user-buttons">
     <app-button
       (click)="navigate('/login')"
@@ -61,4 +61,17 @@
     />
     <app-button (click)="navigate('/signup')" btnText="SIGNUP" type="fill" />
   </div>
+  } @else{
+  <app-button
+    (click)="signoutUser('')"
+    btnText="SIGNOUT"
+    type="outline"
+    [theme]="
+      darkThemeRouters.includes(router.url) ||
+      router.url.indexOf('/template-desc') != -1
+        ? 'dark'
+        : 'light'
+    "
+  />
+  }
 </div>

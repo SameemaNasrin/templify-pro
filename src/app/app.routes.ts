@@ -9,9 +9,14 @@ import { TemplateDescComponent } from './Components/template-desc/template-desc.
 import { SignupComponent } from './Components/signup/signup.component';
 import { LoginComponent } from './Components/login/login.component';
 import { PaymentFlowComponent } from './Components/payment-flow/payment-flow.component';
+import { authGuard } from './Guard/auth.guard';
 
 export const routes: Routes = [
-  { path: 'template', component: TemplateComponent },
+  {
+    path: 'template',
+    component: TemplateComponent,
+    canActivate: [authGuard],
+  },
   { path: 'blog', component: BlogComponent },
   { path: 'out-studio', component: OurStudioComponent },
   { path: 'get-in-touch', component: GetInTouchComponent },

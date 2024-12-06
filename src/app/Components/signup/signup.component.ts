@@ -2,7 +2,9 @@ import { Component, OnInit, signal } from '@angular/core';
 import { Constants } from '../../Common/Constants';
 
 import {
+  FormBuilder,
   FormControl,
+  FormGroup,
   FormGroupDirective,
   FormsModule,
   NgForm,
@@ -16,6 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { ButtonComponent } from '../../Template/button/button.component';
 import { Router } from '@angular/router';
+import { AuthService } from '../../Services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
     control: FormControl | null,
@@ -47,10 +51,13 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class SignupComponent {
   socialLogins: any;
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+  // emailFormControl = new FormControl('', [
+  //   Validators.required,
+  //   Validators.email,
+  // ]);
+
+  signupForm!: FormGroup<any>;
+
   hide = signal(true);
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());
@@ -59,7 +66,20 @@ export class SignupComponent {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor(private router: Router){}
+  constructor(
+    private router: Router,
+    private readonly formBuilder: FormBuilder,
+    private readonly authService: AuthService,
+    private readonly snackBar: MatSnackBar
+  ) {
+    this.signupForm = this.formBuilder.group({
+      emailFormControl: new FormControl('', [
+        Validators.required,
+        Validators.email,
+      ]),
+      passFormControl: new FormControl(''),
+    });
+  }
 
   ngOnInit(): void {
     this.getSocialLogins();
@@ -69,8 +89,25 @@ export class SignupComponent {
     this.socialLogins = Constants.SOCIAL_LOGINS;
   }
 
-  navigate(navigateUrl:string){
+  navigate(navigateUrl: string) {
     this.router.navigate([navigateUrl]);
+  }
 
+  signupUser() {
+    const email = this.signupForm.controls.emailFormControl.value;
+    const pass = this.signupForm.controls.passFormControl.value;
+    this.authService.signup(email, pass).subscribe(
+      (data) => {
+        console.log('Data: ' + data);
+      },
+      (errorMessage) => {
+        console.log(errorMessage)
+        this.snackBar.open(errorMessage, 'Close', {
+          duration: 30000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+      }
+    );
   }
 }

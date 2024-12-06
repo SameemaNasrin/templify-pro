@@ -1,20 +1,19 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
-import { FirebaseService } from './Services/FirebaseService';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, NavBarComponent],
-  providers: [FirebaseService],
+  providers: [],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'templify-pro';
   noNavBarComponents: string[] = ['/signup', '/login', '/payment-flow'];
-  constructor(public router: Router, public firebaseService: FirebaseService) {}
+  constructor(public router: Router) {}
 
   // generate admin page to add template and use this function
   // addTemplate() {
