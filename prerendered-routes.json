@@ -1,0 +1,12 @@
+{
+  "routes": [
+    "/blog",
+    "/get-in-touch",
+    "/login",
+    "/out-studio",
+    "/payment-flow",
+    "/signup",
+    "/template",
+    "/template-desc"
+  ]
+}
